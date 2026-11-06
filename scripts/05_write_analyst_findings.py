@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 from datetime import datetime
 from pathlib import Path
 import sys
@@ -21,6 +22,39 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from dashboard.data import counts, medians, read_csv, usable_coordinates
+
+
+def render_findings(evidence, metadata, relative_script):
+    """Keep the reader view short; full interpretations remain in the evidence CSV."""
+    cautions = [
+        'Requests are reports, not unique incidents or all problems in NYC.',
+        'Repeat reports and reporting access affect counts; volume does not establish severity.',
+        'Agency counts do not measure staff effort or performance; case types differ.',
+        'Borough counts are not population-adjusted rates or performance rankings.',
+        'Partial-month coverage cannot establish monthly growth or seasonality.',
+        'Weekday exposure is unequal and boundary days are partial; reporting time may differ from incident time.',
+        'Keep source status separate from timestamp-based closure; neither verifies satisfaction.',
+        'Only valid closed cases contribute durations; open cases create incomplete-follow-up bias.',
+        'Compare valid sample sizes and case mix before interpreting category medians.',
+        'Small samples and different responsibilities prevent a simple agency performance ranking.',
+        'Flags prompt review, not deletion or a finding of SLA failure.',
+        'Report the median and tail alongside the mean; open cases are excluded.',
+        'Rounded cells are not neighbourhoods; repeated reports, missing data and location provenance affect concentration.',
+        'Request age and service mix affect closure rates; recorded closure does not establish service quality.',
+        'Thresholds are project choices; high request volume may still have few valid durations.',
+    ]
+    lines = ['# Findings for all 15 investigations',
+             f"{metadata['rows']:,} requests; creation coverage {metadata['creation_start']} to {metadata['creation_end']} (NYC local time). No filters. Valid durations: {metadata['valid_durations']:,}.",
+             'Closure means a recorded closed timestamp. Negative durations are excluded from duration analysis; outliers are retained. Original API download metadata is unavailable.',
+             f'[Full evidence](analyst_evidence.csv) | [Source details](analysis_provenance.json) | [Calculation script]({relative_script})']
+    for i, row in enumerate(evidence):
+        sentences=re.split(r'(?<=[.!?])\s+(?=[A-Z])',row['observed_pattern'])
+        observation=' '.join(sentences[:2])
+        lines.extend([f"## {row['task'].replace('_',' ')}", row['question'],
+                      f"**Sample:** {int(row['sample_size']):,}.",
+                      '**Observed:** '+observation, '**Interpretation:** '+cautions[i],
+                      f"[Results]({row['result_file']}) | [Chart]({row['visualization']}) | [SQL reference]({row['query_file']})"])
+    return '\n\n'.join(lines)+'\n'
 
 
 def main():
@@ -168,18 +202,7 @@ def main():
                     extraction_metadata_available=False,sql_executed=False,
                     minimum_requests=100,minimum_median_hours=24)
     (out/'analysis_provenance.json').write_text(json.dumps(metadata,indent=2)+'\n',encoding='utf-8')
-    text = ['# Analyst findings for the available NYC 311 snapshot',
-            f'These findings describe **{n:,} requests** created between **{start}** and **{end}**. All 15 investigations use the same unfiltered local snapshot. There are **{nv:,} valid non-negative durations** and **{df.is_closed.sum():,} recorded closures**.',
-            'The source is the earlier local `'+metadata['source']+'`, not the later Colab extract shown in notebook 04. Its genuine extraction metadata was not supplied; the creation window is known, but the download time and API parameters are unverified. Results below were recalculated in Python and are not presented as newly executed MySQL query results. Recompute them when the final canonical extract and matching MySQL table are ready.',
-            f'Source SHA-256: `{metadata["sha256"]}`. See [provenance](analysis_provenance.json), [completed evidence table](analyst_evidence.csv), and the [reproduction script]({relative_script}).',
-            'Closure means a recorded closed timestamp, even if its chronology is invalid. Duration analysis requires valid creation and closure timestamps with closure at or after creation. Missing location values are not imputed. Charts and aggregate result tables accompany every investigation.']
-    for row in evidence:
-        text.extend([f'## {row["task"].replace("_"," ")}', row['question'],
-                     f'**Sample:** {row["sample_size"]:,}. Total filtered rows: {n:,}; valid-duration sample: {nv:,}.',
-                     '**Observation:** '+row['observed_pattern'], '**Cautious interpretation:** '+row['cautious_interpretation'],
-                     f'[Calculation]({relative_script}) · [SQL reference]({row["query_file"]}) · [Aggregate result]({row["result_file"]})',
-                     f'![{row["question"]}]({row["visualization"]})'])
-    (out/'analyst_findings.md').write_text('\n\n'.join(text)+'\n',encoding='utf-8')
+    (out/'analyst_findings.md').write_text(render_findings(evidence, metadata, relative_script),encoding='utf-8')
     print(f'Wrote {len(evidence)} completed investigations, aggregate tables and charts to {out}')
 
 

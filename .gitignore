@@ -7,7 +7,6 @@ __pycache__/
 certs/
 *.pem
 data/**
-!data/README.md
 !data/raw/
 data/raw/*
 !data/raw/nyc_100k_raw.csv

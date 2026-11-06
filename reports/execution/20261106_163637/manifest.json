@@ -9,7 +9,7 @@
       "started_at": "2026-11-06T16:36:38.261221+05:30",
       "source_code_sha256": "8d2c18481919f232deda36c481d5b3bb2eae7433682599b71cd1ec429df26286",
       "status": "passed",
-      "executed_file": "reports/execution/20261106_163637/04_mysql_sql_analytics.ipynb",
+      "executed_file": "notebooks/04_mysql_sql_analytics.ipynb",
       "ended_at": "2026-11-06T16:40:30.439451+05:30",
       "sha256": "84a9e4eec09e1acd6710ffc50f02754ffce8b08b43c764e5f7aed8574f49aaf6",
       "executed_cells": 7
@@ -336,5 +336,6 @@
     "file": "sql_python_comparison.json",
     "sha256": "5787347f9e540f7fced6cf37de3f0eb83fbfd090fe74c47d18dcaa9ee9480f09"
   },
-  "credential_exclusion_check": "passed"
+  "credential_exclusion_check": "passed",
+  "storage_note": "Identical executed notebook copies consolidated into notebooks/; execution hashes unchanged. Test outcomes remain in checks; redundant console logs removed."
 }

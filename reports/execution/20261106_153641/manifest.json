@@ -16,7 +16,7 @@
       "started_at": "2026-11-06T15:36:46.255469+05:30",
       "source_code_sha256": "37340fe8f98a72e6abf6984fed3677cace16c452874057eda32dc785092ba12c",
       "status": "passed",
-      "executed_file": "reports/execution/20261106_153641/02_data_preparation.ipynb",
+      "executed_file": "notebooks/02_data_preparation.ipynb",
       "ended_at": "2026-11-06T15:36:51.709761+05:30",
       "sha256": "13fd87c505277426d9ed2f5508c7eea15a1a1c7203468a2f9664afebd690138e",
       "executed_cells": 10
@@ -26,7 +26,7 @@
       "started_at": "2026-11-06T15:36:51.722118+05:30",
       "source_code_sha256": "3bea4193e77910ac74becdc7b52a7df1739c11416a27380db6b29eba5d718636",
       "status": "passed",
-      "executed_file": "reports/execution/20261106_153641/03_statistics.ipynb",
+      "executed_file": "notebooks/03_statistics.ipynb",
       "ended_at": "2026-11-06T15:36:56.513828+05:30",
       "sha256": "2d61c9e61cbf1858c26ba0b723c971b0452dacb7812296c5390426a4665eb8c3",
       "executed_cells": 7
@@ -148,5 +148,6 @@
     "evidence_rows": 15,
     "source": "data/cleaned/nyc_cleaned.csv",
     "code_sha256": "156805a27db65ad06ab6604d567d31e8f9b76cbdbe4b437080200eeebd780038"
-  }
+  },
+  "storage_note": "Identical executed notebook copies consolidated into notebooks/; execution hashes unchanged. Test outcomes remain in checks; redundant console logs removed."
 }
