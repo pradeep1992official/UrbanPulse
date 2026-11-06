@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "source": "data/cleaned/nyc_cleaned.csv",
+  "rows": 100000,
+  "kpis": {
+    "total": 100000,
+    "closure": 69.382,
+    "open": 30618,
+    "median": 2.640833333333333,
+    "over72": 6.355485612809147,
+    "valid_n": 69263
+  },
+  "displayed_metrics": [
+    {
+      "label": "Total requests",
+      "value": "100,000"
+    },
+    {
+      "label": "Recorded closure",
+      "value": "69.4%"
+    },
+    {
+      "label": "Open requests",
+      "value": "30,618"
+    },
+    {
+      "label": "Median resolution",
+      "value": "2.64 h"
+    },
+    {
+      "label": "Over 72 hours",
+      "value": "6.4%"
+    }
+  ],
+  "views_checked": 5
+}

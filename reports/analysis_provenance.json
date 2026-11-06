@@ -1,0 +1,17 @@
+{
+  "source": "data\\cleaned\\nyc_311_cleaned.csv",
+  "sha256": "0a2b7f6121e2db9940ec54e5baff0a2d263cf7a45018bcd0e2ff7854864ab417",
+  "generated_at": "2026-11-06T15:20:40.991205+05:30",
+  "creation_start": "2026-10-14 11:19:47",
+  "creation_end": "2026-10-23 02:46:57",
+  "rows": 100000,
+  "valid_durations": 69263,
+  "recorded_closed": 69382,
+  "negative_chronology": 119,
+  "usable_coordinates": 98415,
+  "filters": "None; full supplied snapshot",
+  "extraction_metadata_available": false,
+  "sql_executed": false,
+  "minimum_requests": 100,
+  "minimum_median_hours": 24
+}

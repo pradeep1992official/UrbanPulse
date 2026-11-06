@@ -1,0 +1,42 @@
+Field Name,Source Name,Meaning,Data Type,Missing Count,Missing Percentage,Transformation,Analytical Use
+unique_key,NYC 311,Unique service request identifier,string,0,0.0,Duplicate identifier check,Complaint identification
+created_date,NYC 311,Complaint creation timestamp,datetime64[us],0,0.0,Convert to datetime,Temporal analysis
+closed_date,NYC 311,Complaint closure timestamp,datetime64[us],30618,30.62,Convert to datetime; preserve missing values,Closure and resolution analysis
+due_date,NYC 311,Expected response deadline,datetime64[us],99717,99.72,Convert to datetime,Deadline analysis
+agency,NYC 311,Responsible agency code,string,0,0.0,Normalize whitespace and case,Agency comparison
+complaint_type,NYC 311,Complaint category,string,0,0.0,Normalize whitespace and case,Complaint trends
+borough,NYC 311,NYC borough,string,0,0.0,Normalize whitespace and case,Geographic analysis
+status,NYC 311,Current complaint status,string,0,0.0,Normalize whitespace and case; preserve recorded status,Status analysis
+latitude,NYC 311,Geographic latitude,float64,1585,1.58,Numeric; validate range; preserve missing values,Spatial analysis
+longitude,NYC 311,Geographic longitude,float64,1585,1.58,Numeric; validate range; preserve missing values,Spatial analysis
+agency_name,NYC 311,Responsible agency name,string,0,0.0,Normalize whitespace and case,Agency reporting
+descriptor,NYC 311,Detailed complaint category,string,1479,1.48,Normalize whitespace and case,Complaint classification
+location_type,NYC 311,Incident location category,string,7259,7.26,Normalize; preserve missing values,Location analysis
+incident_zip,NYC 311,Incident ZIP code,string,880,0.88,Keep as text; preserve missing values,ZIP-level analysis
+city,NYC 311,Incident city,string,5626,5.63,Normalize; preserve missing values,City-level analysis
+resolution_description,NYC 311,Agency resolution details,str,10046,10.05,Preserve meaningful nulls,Resolution assessment
+created_date_parse_error,Derived,Invalid creation timestamp,bool,0,0.0,Flag failed parsing,Date quality validation
+closed_date_parse_error,Derived,Invalid closure timestamp,bool,0,0.0,Flag failed parsing,Date quality validation
+due_date_parse_error,Derived,Invalid deadline timestamp,bool,0,0.0,Flag failed parsing,Date quality validation
+closure_before_creation,Derived,Closure earlier than creation,bool,0,0.0,Compare closure and creation dates,Chronological validation
+invalid_date_flag,Derived,Any date problem,bool,0,0.0,Combine parse-error and chronology flags,Data quality assessment
+latitude_original,NYC 311,Latitude before quality checks,float64,1585,1.58,Preserve numeric original,Spatial data auditing
+longitude_original,NYC 311,Longitude before quality checks,float64,1585,1.58,Preserve numeric original,Spatial data auditing
+invalid_coordinates_original,Derived,Invalid coordinates before quality checks,bool,0,0.0,Check lat/lon ranges,Original spatial quality
+city_borough_imputed,Derived,City filled from borough,bool,0,0.0,Flag imputation,Geographic data quality
+zipcode_city_imputed,Derived,ZIP filled from city,bool,0,0.0,Flag imputation,Geographic data quality
+location_type_imputed,Derived,Location type filled from descriptor,bool,0,0.0,Flag imputation,Data quality assessment
+latitude_imputed,Derived,Latitude filled from ZIP mean,bool,0,0.0,Flag imputation,Spatial data quality
+longitude_imputed,Derived,Longitude filled from ZIP mean,bool,0,0.0,Flag imputation,Spatial data quality
+status_updated,Derived,Status changed during cleaning,bool,0,0.0,Flag status update,Status quality assessment
+invalid_coordinates,Derived,Invalid coordinates after numeric conversion,bool,0,0.0,Check lat/lon ranges,Spatial data quality
+missing_coordinates,Derived,Missing lat or lon after numeric conversion,bool,0,0.0,Check nulls,Spatial completeness
+outside_nyc_bounds,Derived,Outside approximate NYC bounds,bool,0,0.0,Check bounding box,Geographic validation
+coordinate_quality_flag,Derived,Any coordinate problem,bool,0,0.0,"Combine invalid, missing and outside-NYC flags",Spatial analysis filtering
+resolution_hours,Derived,Resolution duration in hours,float64,30737,30.74,Closed minus created (valid dates only),Resolution performance
+long_resolution_flag,Derived,Duration over 365 days,bool,0,0.0,Flag for review,Outlier assessment
+is_closed,Derived,Closure recorded,bool,0,0.0,closed_date is present,Closure analysis
+created_year,Derived,Creation year,int32,0,0.0,Extract from created_date,Yearly trends
+created_month,Derived,Creation month,int32,0,0.0,Extract from created_date,Monthly trends
+created_weekday,Derived,Creation weekday,str,0,0.0,Extract from created_date,Weekly patterns
+created_hour,Derived,Creation hour,int32,0,0.0,Extract from created_date,Hourly trends

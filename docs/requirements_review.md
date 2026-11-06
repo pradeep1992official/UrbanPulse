@@ -4,7 +4,7 @@ Reviewed 6 November 2026. Source: `URBANPULSE_NYC..docx` and the four explicitly
 
 ## Overall verdict
 
-The four notebooks provide a strong implementation of the first four stages, but **neither all four notebooks nor the entire project are complete for submission**. Notebook 04 contains saved successful MySQL-load evidence, whereas notebooks 01 and 03 contain no execution counts or outputs. The required interpretation fields for the 15 investigations are generated blank. The Word document also requires Streamlit and final reporting beyond these four notebooks.
+The four notebooks provide a strong implementation of the first four stages, but **successful live extraction and current MySQL execution remain unverified**. The supplied original notebook 04 contains saved historical MySQL-load evidence; the supplied original notebooks 01 and 03 had no outputs. The current notebooks 02 and 03 have now been freshly executed on the preserved raw snapshot, with [dated evidence](../reports/execution/20261106_153641/summary.md). Dashboard checks and all 15 Python investigations were also rerun against the canonical preparation output. Notebook 04's generated evidence template has blank interpretation fields, while the repository's reviewed `reports/` evidence has completed observations and cautious interpretations. The Streamlit application and five-KPI dashboard are implemented.
 
 | Guideline | Supplied evidence | Status / remaining work |
 |---|---|---|
@@ -20,11 +20,11 @@ The four notebooks provide a strong implementation of the first four stages, but
 | IQR histogram and boxplot | Notebook 03 flags and retains outliers | Implemented; execute and review saved charts. |
 | MySQL staging, retries, validation and publication | Notebook 04 saved report shows 100,000 published and full roundtrip passed | Supported by original saved output; rerun after cleaning changes, retain new JSON report. |
 | Fifteen SQL investigations | All 15 questions and calculations in notebook 04 | Implemented with saved result/chart outputs; interpretation remains incomplete. |
-| Question, query, n, chart, observed pattern, cautious interpretation per task | Evidence CSV generated with blank final two columns | Incomplete: review results and fill all 15 rows. |
-| Navigable Streamlit analyst pages and filters | No application supplied | Missing. |
-| Five KPIs and filtered preview | No application supplied | Missing. |
-| Empty-state / connection-error handling | No application supplied | Missing. |
-| Final findings and limitations | Scattered caveats; no final report supplied | Incomplete. |
+| Question, query, n, chart, observed pattern, cautious interpretation per task | Added `reports/analyst_evidence.csv` with all 15 completed rows and linked charts/results | Complete for the identified earlier local extract; regenerate and reconcile with final MySQL results before submission. |
+| Navigable Streamlit analyst pages and filters | Added `streamlit_app.py` with five views and shared date/borough/complaint filters | Implemented and tested using synthetic fixtures; review final extract before submission. |
+| Five KPIs and filtered preview | Added timestamp-derived KPIs, a record preview and filtered CSV export | Implemented; missing duration metrics show N/A. |
+| Empty-state / connection-error handling | Added missing-file, empty-result, invalid-data and MySQL error states | Implemented; no live MySQL connection tested. |
+| Final findings and limitations | Added `reports/final_findings_report.md` with executive findings, KPIs, comparisons, recommendations and limitations, supported by `reports/analyst_findings.md` | Complete for the earlier local extract; final canonical-data reconciliation remains. |
 | GitHub code organization and reproducibility | Hard-coded personal Colab paths, no dependency file | Repository now has portable notebooks/scripts, README, requirements and ignore rules. |
 
 ## Important technical findings
@@ -41,11 +41,12 @@ The four notebooks provide a strong implementation of the first four stages, but
 - [ ] Run the portable extraction notebook and preserve its actual metadata (or use the matching genuine original snapshot and metadata).
 - [ ] Run preparation and statistics; review dictionary, validation log, invalid records, distribution and outlier outputs.
 - [ ] Rerun MySQL load and all queries against the new preparation policy; retain the successful load JSON.
-- [ ] Fill observed pattern and cautious interpretation for all 15 investigations with denominators and reviewed visualizations.
-- [ ] Build Streamlit date, borough and complaint filters, analyst navigation, preview, empty states and connection-error handling.
-- [ ] Add the five KPIs: distinct requests; recorded-closure share; rows without recorded closure; median valid resolution hours; share of valid durations over 72 hours.
-- [ ] Explain that 72 hours is an illustrative threshold, not a verified official SLA.
-- [ ] Write a final findings report using actual outputs, coverage dates, sample sizes and limitations.
+- [x] Fill observed pattern and cautious interpretation for all 15 investigations with denominators and visualizations (identified earlier local extract).
+- [ ] Reconcile these findings with the final canonical dataset and newly executed MySQL results.
+- [x] Build Streamlit date, borough and complaint filters, analyst navigation, preview, empty states and connection-error handling.
+- [x] Add the five KPIs: distinct requests; recorded-closure share; rows without recorded closure; median valid resolution hours; share of valid durations over 72 hours.
+- [x] Explain that 72 hours is an illustrative threshold, not a verified official SLA.
+- [x] Write a findings report using actual outputs, coverage dates, sample sizes and limitations for the available extract.
 - [ ] Review Git tracking, credentials, large files and the final repository diff before committing and publishing.
 
 This review does not claim a grade or treat the Word document's proposed weights as an official program rubric.

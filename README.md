@@ -1,20 +1,20 @@
-<<<<<<< HEAD
 # UrbanPulse NYC
 
 Citizen complaint and recorded closure analysis using NYC 311 data, Python and MySQL.
 
-The four notebooks implement extraction, preparation, descriptive statistics and 15 SQL investigations. **The complete capstone is not submission-ready yet:** Streamlit, the five-KPI dashboard and the final interpretation report remain outstanding. See [the requirement review](docs/requirements_review.md) for an evidence-based checklist.
+The four notebooks implement extraction, preparation, descriptive statistics and 15 SQL investigations. The Streamlit application adds interactive analyst views and the five-KPI dashboard. Read the [final findings report](reports/final_findings_report.md) for the results and recommendations, supported by [evidence for all 15 investigations](reports/analyst_findings.md) from the earlier local extract. **Submission still requires fresh execution and reconciliation with the final canonical extract and MySQL results.** See [the requirement review](docs/requirements_review.md) for an evidence-based checklist.
 
 ## Repository layout
 
 ```text
 notebooks/           Four ordered notebooks for explanation and exploration
+streamlit_app.py     Interactive dashboard entry point
+dashboard/           Read-only data access, filters and KPI calculations
 scripts/             Matching executable Python versions
 sql/                 Exported queries and SQL usage notes
 docs/                Requirements review and methodology
 reports/             Submission findings and validation guidance
 data/                Local raw/cleaned datasets and generated analysis (ignored)
-archive/early_work/  Earlier scripts and combined notebook, retained for reference
 ```
 
 ## Setup and execution
@@ -51,7 +51,24 @@ python scripts/04_mysql_sql_analytics.py
 
 The loader validates the 41-column preparation output, retries transient batch failures, compares the entire staged dataset, reconciles extraction and cleaning counts, then publishes with a table rename. Existing tables are retained as backups. Do not run concurrent loaders. The account needs database/table creation, INSERT, SELECT and rename privileges. Queries, result CSVs, charts and a load-validation JSON are written under `data/mysql/`. SQL files with `%s` placeholders must be executed with bound parameters through the connector.
 
-After a successful run, complete `observed_pattern` and `cautious_interpretation` in `data/mysql/analyst_evidence.csv` for all 15 tasks, then retain the reviewed evidence in `reports/`. Rerunning notebook 04 regenerates that evidence template, so preserve the reviewed version separately.
+After a successful run, complete `observed_pattern` and `cautious_interpretation` in `data/mysql/analyst_evidence.csv` for all 15 tasks, then retain the reviewed evidence in `reports/`. The current [completed evidence](reports/analyst_evidence.csv) describes the earlier local extract; do not transplant those numbers into a different MySQL snapshot. Rerunning notebook 04 regenerates its evidence template, so preserve reviewed versions separately. Reproduce the local written findings with `python scripts/05_write_analyst_findings.py`; see [reports](reports/README.md) for source selection.
+
+## Streamlit dashboard
+
+```powershell
+python -m pip install -r requirements.txt
+python -m streamlit run streamlit_app.py
+```
+
+Open the local URL printed in the terminal (normally `http://localhost:8501`). The default source is `data/cleaned/nyc_cleaned.csv`. If only the earlier `nyc_311_cleaned.csv` exists, the app opens it with a provenance warning. Change the CSV path in the sidebar or set `URBANPULSE_DATA` before launch. Missing files show preparation instructions instead of an exception.
+
+Select MySQL to read `urban_pulse_db.service_requests` using the same environment settings as notebook 04. This app accepts a CA file path in `MYSQL_SSL_CA`; it requires verified TLS and only reads the published table. It does not create or load a database. Data is cached for 60 seconds for MySQL and five minutes for CSV (file modification time also invalidates the CSV cache); **Refresh data** clears the cache.
+
+The sidebar provides five views: Overview; Demand & workload; Resolution & outliers; Geography & closure; Records & quality. Creation-date, borough and complaint filters apply to every chart, table, KPI and export. Date endpoints are inclusive. Missing creation dates remain included until a date filter is enabled; clearing a category selection yields an empty result.
+
+The five KPIs are distinct requests, recorded-closure percentage, requests without a recorded closure, median valid resolution hours, and the percentage of valid durations strictly exceeding 72 hours. Durations and closure are recalculated from timestamps; invalid/negative durations are excluded from duration denominators. Missing-duration KPIs display N/A. The geographic view excludes imputed coordinates when flags exist. Records can be previewed (500 rows) and downloaded (all filtered rows, selected columns).
+
+Run `python tests/test_dashboard.py` to check KPI arithmetic, filters, all investigation views, missing data, and connection configuration errors without live services. Full MySQL integration still needs a configured service.
 
 ## Interpretation
 
@@ -61,10 +78,10 @@ Recorded closure means a closed timestamp exists. It does not establish satisfac
 
 Run `python tests/test_pipeline.py` for isolated preparation/statistics and schema checks. See [validation scope](docs/validation.md) for what has and has not been verified.
 
-Follow [the submission checklist](docs/requirements_review.md). Large datasets, credentials and certificates are excluded from new commits. Files tracked before `.gitignore` was added remain tracked until explicitly removed from the index; use `git rm --cached -- data` after reviewing `git status` to keep the local data while excluding it from the next commit. Existing Git history still contains previously committed datasets. No remote repository has been created or published by this preparation.
+Run `python scripts/06_execute_evidence.py` for fresh execution of notebooks 01–03 with saved outputs and dated evidence. Once MySQL is configured, `python scripts/06_execute_evidence.py --mysql --only-mysql` records notebook 04 separately. See [execution evidence](reports/execution/README.md) for run artifacts and scope.
+
+The [latest recorded processing run](reports/execution/20261106_153641/summary.md) passed preparation, statistics, dashboard checks and the Python investigations using the preserved raw snapshot. The live API attempt stalled; MySQL execution remains pending. To reproduce the local-import run, use `python scripts/06_execute_evidence.py --local-source data/raw/nyc_311_100k.csv`.
+
+Follow [the submission checklist](docs/requirements_review.md). Large datasets, credentials and certificates are excluded from new commits. Legacy datasets have been removed from Git tracking and are preserved locally. Existing Git history still contains previously committed datasets.
 
 Data source: NYC Open Data, dataset `erm2-nwe9`. The original Word guidelines are the requirement source; external links and administrative instructions inside them were not executed as user requests.
-=======
-# UrbanPulse
-URBAN PULSE : Citizen Complaint Intelligence &amp; Resolution Analytics. Acquire approximately 100,000 records where the live API permits; prepare a documented analysis-ready dataset; assess data quality and statistical distributions; store data in MySQL; complete analyst investigations; and publish interactive results through Streamlit.
->>>>>>> dd49619db98243ec3513edc12f13a4a9c7ba8715

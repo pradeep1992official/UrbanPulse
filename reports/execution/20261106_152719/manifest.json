@@ -1,0 +1,15 @@
+{
+  "started_at": "2026-11-06T15:27:19+05:30",
+  "ended_at": "2026-11-06T15:36:40.910335+05:30",
+  "status": "terminated",
+  "notebooks": [
+    {
+      "notebook": "notebooks/01_data_retrieval.ipynb",
+      "status": "terminated",
+      "reason": "Live 1000-row ordered query stalled; independent unbounded and date-bounded requests both timed out at 20-second read limits. Kernel and runner stopped explicitly. No successful fresh API download claimed.",
+      "sha256": "61c6353776bd9cf56672d67a59a2bad19052f879316de7f655cca7b923378593",
+      "saved_executed_notebook": false
+    }
+  ],
+  "downstream": "Not executed in this attempt; see separately recorded local-snapshot run"
+}

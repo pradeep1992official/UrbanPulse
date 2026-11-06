@@ -1,0 +1,152 @@
+{
+  "started_at": "2026-11-06T15:36:41.687792+05:30",
+  "python": "3.13.3",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "mysql_requested": false,
+  "notebooks": [
+    {
+      "notebook": "notebooks/01_data_retrieval.ipynb",
+      "started_at": "2026-11-06T15:36:46.215316+05:30",
+      "source_code_sha256": "425b426a0867086d99895264c52b03fcdde45bfa24d583d6aeea242f0aaabdbf",
+      "status": "not_executed",
+      "reason": "Existing canonical snapshot explicitly selected"
+    },
+    {
+      "notebook": "notebooks/02_data_preparation.ipynb",
+      "started_at": "2026-11-06T15:36:46.255469+05:30",
+      "source_code_sha256": "37340fe8f98a72e6abf6984fed3677cace16c452874057eda32dc785092ba12c",
+      "status": "passed",
+      "executed_file": "reports/execution/20261106_153641/02_data_preparation.ipynb",
+      "ended_at": "2026-11-06T15:36:51.709761+05:30",
+      "sha256": "13fd87c505277426d9ed2f5508c7eea15a1a1c7203468a2f9664afebd690138e",
+      "executed_cells": 10
+    },
+    {
+      "notebook": "notebooks/03_statistics.ipynb",
+      "started_at": "2026-11-06T15:36:51.722118+05:30",
+      "source_code_sha256": "3bea4193e77910ac74becdc7b52a7df1739c11416a27380db6b29eba5d718636",
+      "status": "passed",
+      "executed_file": "reports/execution/20261106_153641/03_statistics.ipynb",
+      "ended_at": "2026-11-06T15:36:56.513828+05:30",
+      "sha256": "2d61c9e61cbf1858c26ba0b723c971b0452dacb7812296c5390426a4665eb8c3",
+      "executed_cells": 7
+    },
+    {
+      "notebook": "notebooks/04_mysql_sql_analytics.ipynb",
+      "started_at": "2026-11-06T15:36:56.523308+05:30",
+      "source_code_sha256": "5abd301620a0abe9157c7316ec41a871b46283f780c35f2070ab69390118c89e",
+      "status": "not_executed",
+      "reason": "MySQL not requested; requires configured environment and CA certificate"
+    }
+  ],
+  "checks": [
+    {
+      "test": "test_pipeline.py",
+      "status": "passed",
+      "exit_code": 0
+    },
+    {
+      "test": "test_dashboard.py",
+      "status": "passed",
+      "exit_code": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "data/extraction_metadata.json",
+      "bytes": 925,
+      "sha256": "138e95bcf55f44bb7d50376523b0768bbef12ae4c713f1e8dae21fee88990722"
+    },
+    {
+      "path": "data/data_dictionary.csv",
+      "bytes": 4759,
+      "sha256": "123e26ffa59d8d0c60fdae84fdefaaef543520a0292db2ed16e7e63e4e071d2d"
+    },
+    {
+      "path": "data/cleaning_validation_log.csv",
+      "bytes": 1219,
+      "sha256": "4f5602a251b5744a55f786d8d53e32a1752745c62879d07ba3080ed269b7b0b3"
+    },
+    {
+      "path": "data/cleaned/nyc_cleaned.csv",
+      "bytes": 73725670,
+      "sha256": "80502bf0307c77c3f2ece33ea97ec6a126d34b7b82d6ed1a129c06293dd8a7be"
+    }
+  ],
+  "local_import": {
+    "source_kind": "local_raw_snapshot_import",
+    "source_file": "data/raw/nyc_311_100k.csv",
+    "source_sha256": "5d7fb6053dff659a4b98a6a2ebdb023d24105624982a4726ee0106a1b1e45181",
+    "imported_at": "2026-11-06T15:36:45.432585+05:30",
+    "actual_records": 100000,
+    "selected_fields": [
+      "unique_key",
+      "created_date",
+      "closed_date",
+      "due_date",
+      "agency",
+      "complaint_type",
+      "borough",
+      "status",
+      "latitude",
+      "longitude",
+      "agency_name",
+      "descriptor",
+      "location_type",
+      "incident_zip",
+      "city",
+      "resolution_description"
+    ],
+    "status": "local_import_completed",
+    "original_extraction_time": null,
+    "original_api_parameters": null,
+    "data_coverage_start": "2026-10-14T11:19:47.000",
+    "data_coverage_end": "2026-10-23T02:46:57.000",
+    "limitations": [
+      "Existing raw snapshot; import is not a successful fresh API extraction."
+    ]
+  },
+  "ended_at": "2026-11-06T15:37:09.119056+05:30",
+  "canonical_dashboard": {
+    "status": "passed",
+    "source": "data/cleaned/nyc_cleaned.csv",
+    "rows": 100000,
+    "kpis": {
+      "total": 100000,
+      "closure": 69.382,
+      "open": 30618,
+      "median": 2.640833333333333,
+      "over72": 6.355485612809147,
+      "valid_n": 69263
+    },
+    "displayed_metrics": [
+      {
+        "label": "Total requests",
+        "value": "100,000"
+      },
+      {
+        "label": "Recorded closure",
+        "value": "69.4%"
+      },
+      {
+        "label": "Open requests",
+        "value": "30,618"
+      },
+      {
+        "label": "Median resolution",
+        "value": "2.64 h"
+      },
+      {
+        "label": "Over 72 hours",
+        "value": "6.4%"
+      }
+    ],
+    "views_checked": 5
+  },
+  "fresh_findings": {
+    "status": "passed",
+    "evidence_rows": 15,
+    "source": "data/cleaned/nyc_cleaned.csv",
+    "code_sha256": "156805a27db65ad06ab6604d567d31e8f9b76cbdbe4b437080200eeebd780038"
+  }
+}
