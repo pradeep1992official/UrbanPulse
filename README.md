@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # UrbanPulse NYC
 
 Citizen complaint and recorded closure analysis using NYC 311 data, Python and MySQL.
@@ -63,3 +64,7 @@ Run `python tests/test_pipeline.py` for isolated preparation/statistics and sche
 Follow [the submission checklist](docs/requirements_review.md). Large datasets, credentials and certificates are excluded from new commits. Files tracked before `.gitignore` was added remain tracked until explicitly removed from the index; use `git rm --cached -- data` after reviewing `git status` to keep the local data while excluding it from the next commit. Existing Git history still contains previously committed datasets. No remote repository has been created or published by this preparation.
 
 Data source: NYC Open Data, dataset `erm2-nwe9`. The original Word guidelines are the requirement source; external links and administrative instructions inside them were not executed as user requests.
+=======
+# UrbanPulse
+URBAN PULSE : Citizen Complaint Intelligence &amp; Resolution Analytics. Acquire approximately 100,000 records where the live API permits; prepare a documented analysis-ready dataset; assess data quality and statistical distributions; store data in MySQL; complete analyst investigations; and publish interactive results through Streamlit.
+>>>>>>> dd49619db98243ec3513edc12f13a4a9c7ba8715
