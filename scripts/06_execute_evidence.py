@@ -16,8 +16,10 @@ from zoneinfo import ZoneInfo
 
 import nbformat
 from nbclient import NotebookClient
+from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parents[1]
+load_dotenv(ROOT / '.env', override=False)
 
 
 def digest(path):

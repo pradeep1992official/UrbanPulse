@@ -1,5 +1,9 @@
 # Validation performed
 
+## Successful current MySQL run
+
+The [6 November MySQL execution](../reports/execution/20261106_163637/summary.md) supersedes the earlier pending-database status. MySQL 8.4.11 with verified TLS passed the 100,000-row load, full read-back comparison, count reconciliation and publication. All 15 SQL results agreed with independent pandas calculations. The live MySQL dashboard source loaded all five views and its KPI values matched the canonical CSV. The successful executed notebook, load report, results, written interpretations, comparison and dashboard evidence are saved in that run folder. Genuine API extraction provenance remains missing.
+
 ## Fresh processing run
 
 See the [6 November execution summary](../reports/execution/20261106_153641/summary.md) for actual notebook outputs, timestamps, hashes and check logs. Notebook 02 and notebook 03 passed on a preserved 100,000-row raw snapshot imported with explicit provenance. All five dashboard views passed against the newly prepared canonical data, and the 15 Python investigations were regenerated. The live API extraction attempt was terminated after stalling and diagnostic timeouts; no successful fresh download is claimed. MySQL remains unexecuted pending connection settings. The historical validation scope below remains relevant to the earlier report.

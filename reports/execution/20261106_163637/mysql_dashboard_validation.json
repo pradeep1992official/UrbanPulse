@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "source": "MySQL published service_requests",
+  "views_checked": 5,
+  "displayed_metrics": [
+    {
+      "label": "Total requests",
+      "value": "100,000"
+    },
+    {
+      "label": "Recorded closure",
+      "value": "69.4%"
+    },
+    {
+      "label": "Open requests",
+      "value": "30,618"
+    },
+    {
+      "label": "Median resolution",
+      "value": "2.64 h"
+    },
+    {
+      "label": "Over 72 hours",
+      "value": "6.4%"
+    }
+  ],
+  "csv_kpis_match": true
+}

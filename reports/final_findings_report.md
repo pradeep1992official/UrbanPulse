@@ -132,7 +132,7 @@ These cells are approximate angular groupings, not neighbourhoods or official ad
 
 This report is descriptive. NYC 311 records represent reported requests and do not capture all urban problems. The short creation window and incomplete follow-up exclude unresolved cases from duration statistics. Differences between categories, agencies and boroughs may reflect case mix and recording practices. No causal explanation, staffing requirement or official service target has been established.
 
-The project includes API extraction, preparation, statistics and MySQL notebooks; 15 SQL reference files; a Streamlit application with shared filters and five KPIs; and the accompanying written evidence. For this report, calculations were executed against the identified local CSV. A new live API extraction and MySQL roundtrip were not performed, and the raw download provenance of this earlier file is unavailable.
+The project includes API extraction, preparation, statistics and MySQL notebooks; 15 SQL reference files; a Streamlit application with shared filters and five KPIs; and the accompanying written evidence. For this report, calculations were executed against the identified local CSV. A new live API extraction and MySQL roundtrip were not performed, and the raw download provenance of this earlier file is unavailable. This describes the initial report execution; see the subsequent MySQL verification below.
 
 Subsequently, the changed preparation and statistics notebooks were rerun from the preserved raw snapshot, and the dashboard and 15 Python investigations were validated against the newly prepared canonical CSV. The five headline KPIs agree with this report. See the [fresh execution summary](execution/20261106_153641/summary.md) for saved outputs and hashes. The live API attempt stalled and was terminated; a successful fresh download and current MySQL roundtrip are still not established.
 
@@ -143,3 +143,7 @@ python scripts/05_write_analyst_findings.py --source data/cleaned/nyc_311_cleane
 ```
 
 That command regenerates the detailed evidence, aggregate CSVs, charts and provenance; this final narrative report is maintained separately. If the source changes, update its figures and interpretations after reviewing the regenerated evidence. See [all 15 investigations](analyst_findings.md), [the evidence table](analyst_evidence.csv), [validation scope](../docs/validation.md) and [project setup](../README.md).
+
+## Subsequent MySQL verification
+
+On 6 November 2026, notebook 04 completed against MySQL 8.4.11 using the current canonical prepared CSV. Verified TLS, the 100,000-row source/cleaned/staged/published reconciliation, full field-by-field read-back validation and publication all passed. All 15 SQL investigations executed and agreed with independent pandas calculations within the recorded numeric precision. The written findings therefore agree with the executed SQL results for this snapshot. The previous published table was preserved as a backup. See the [MySQL execution summary](execution/20261106_163637/summary.md) and [SQL/Python comparison](execution/20261106_163637/sql_python_comparison.json). Original extraction provenance remains the outstanding limitation.

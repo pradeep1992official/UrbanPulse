@@ -1,0 +1,340 @@
+{
+  "started_at": "2026-11-06T16:36:37.555484+05:30",
+  "python": "3.13.3",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "mysql_requested": true,
+  "notebooks": [
+    {
+      "notebook": "notebooks/04_mysql_sql_analytics.ipynb",
+      "started_at": "2026-11-06T16:36:38.261221+05:30",
+      "source_code_sha256": "8d2c18481919f232deda36c481d5b3bb2eae7433682599b71cd1ec429df26286",
+      "status": "passed",
+      "executed_file": "reports/execution/20261106_163637/04_mysql_sql_analytics.ipynb",
+      "ended_at": "2026-11-06T16:40:30.439451+05:30",
+      "sha256": "84a9e4eec09e1acd6710ffc50f02754ffce8b08b43c764e5f7aed8574f49aaf6",
+      "executed_cells": 7
+    }
+  ],
+  "checks": [
+    {
+      "test": "test_pipeline.py",
+      "status": "passed",
+      "exit_code": 0
+    },
+    {
+      "test": "test_dashboard.py",
+      "status": "passed",
+      "exit_code": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "data/extraction_metadata.json",
+      "bytes": 925,
+      "sha256": "138e95bcf55f44bb7d50376523b0768bbef12ae4c713f1e8dae21fee88990722"
+    },
+    {
+      "path": "data/data_dictionary.csv",
+      "bytes": 4759,
+      "sha256": "123e26ffa59d8d0c60fdae84fdefaaef543520a0292db2ed16e7e63e4e071d2d"
+    },
+    {
+      "path": "data/cleaning_validation_log.csv",
+      "bytes": 1219,
+      "sha256": "4f5602a251b5744a55f786d8d53e32a1752745c62879d07ba3080ed269b7b0b3"
+    },
+    {
+      "path": "data/cleaned/nyc_cleaned.csv",
+      "bytes": 73725670,
+      "sha256": "80502bf0307c77c3f2ece33ea97ec6a126d34b7b82d6ed1a129c06293dd8a7be"
+    }
+  ],
+  "ended_at": "2026-11-06T16:40:42.155520+05:30",
+  "mysql_evidence": {
+    "status": "passed",
+    "load_report": "mysql/load_validation_20261106_110646_0b34c517.json",
+    "sql_python_comparison": "sql_python_comparison.json",
+    "evidence_rows": 15,
+    "files": [
+      {
+        "path": "mysql/01_distinct_volume.csv",
+        "sha256": "4d036f10cc13a5bbca6a2f6bdc8fc82488c636dbad93ec85f44d81d9f64e16dd",
+        "bytes": 24
+      },
+      {
+        "path": "mysql/01_distinct_volume.png",
+        "sha256": "f6f5b936cca0dfbcf8b243271294d7685ad7e6a04d46c3551305888c98dd3a2f",
+        "bytes": 18154
+      },
+      {
+        "path": "mysql/01_distinct_volume.sql",
+        "sha256": "136d0e0ac9e969cc279b28953d4c2e2630e5c68b049f760ade00dcd76975fd1c",
+        "bytes": 751
+      },
+      {
+        "path": "mysql/02_top_complaints.csv",
+        "sha256": "5f9c95397ad94b841284ee7674ce53fbbf32b16e762c791c0a05f0a4d6fd8096",
+        "bytes": 251
+      },
+      {
+        "path": "mysql/02_top_complaints.png",
+        "sha256": "726968230b886698af67fb4662559bdc78f33680ffe764b0a9dc8d85c49a4e03",
+        "bytes": 48952
+      },
+      {
+        "path": "mysql/02_top_complaints.sql",
+        "sha256": "6923878c9d3f8e18622bd69231ca54b3d4a881b4b040f68aa7ee2ba6d1e9fe6f",
+        "bytes": 823
+      },
+      {
+        "path": "mysql/03_agency_workload.csv",
+        "sha256": "9fd5f392ea08e023c0322472ba080e8bed0928c671e4dff3fec7714630a9524b",
+        "bytes": 286
+      },
+      {
+        "path": "mysql/03_agency_workload.png",
+        "sha256": "4dc13455e23cce6e18bc2c54f2913060f10b499184221ffd02e5406ff4adf033",
+        "bytes": 36786
+      },
+      {
+        "path": "mysql/03_agency_workload.sql",
+        "sha256": "c28e018a70205af1521f8b8a8f35343d3cf121e15394d217c846b1bf2bd0ac26",
+        "bytes": 830
+      },
+      {
+        "path": "mysql/04_borough_volume.csv",
+        "sha256": "2e3e1bc9a8306c49bdfa703091a1e68def0c2e765fd7ac3a82614c3492243806",
+        "bytes": 120
+      },
+      {
+        "path": "mysql/04_borough_volume.png",
+        "sha256": "672582d9c4c4f5b7809d3c1c3e190c18adee5ec255277ea6a86636ee0d19ad8e",
+        "bytes": 31741
+      },
+      {
+        "path": "mysql/04_borough_volume.sql",
+        "sha256": "ef36420706ac591e8737d2221dbc3bd27079c803a3e2b119ad48dabfcb137653",
+        "bytes": 785
+      },
+      {
+        "path": "mysql/05_monthly_trend.csv",
+        "sha256": "fa32502ef127c40e889c9b693d211b05a66311d5f852ff39aad52731cd3f8b3c",
+        "bytes": 42
+      },
+      {
+        "path": "mysql/05_monthly_trend.png",
+        "sha256": "251196094e8ff56bf79c9fc9af6d5443bd9879a09c30089ad4b91877f920121e",
+        "bytes": 22301
+      },
+      {
+        "path": "mysql/05_monthly_trend.sql",
+        "sha256": "25d9681f06d8dcd1948d18a1b656b99896d7e23da7ecc483af46d3dc2a27f679",
+        "bytes": 881
+      },
+      {
+        "path": "mysql/06_weekday_hour.csv",
+        "sha256": "41759abb7daafd2a167c5ddc70b0913f617fce4829f4f7d5885aaf4fe51e15f9",
+        "bytes": 1665
+      },
+      {
+        "path": "mysql/06_weekday_hour.png",
+        "sha256": "0a1d198639f380a733e917556fec06ca1a0249eabd9aa29d52fe8a8a7dc5d86e",
+        "bytes": 35241
+      },
+      {
+        "path": "mysql/06_weekday_hour.sql",
+        "sha256": "294288529b341a88da16f3b376c78d565e5b171e1e4643e9eb6021623810b7cd",
+        "bytes": 899
+      },
+      {
+        "path": "mysql/07_status_distribution.csv",
+        "sha256": "5e8805290d504dbdbae50de9d04541691b872d033ff810498dd6a4c30a83770a",
+        "bytes": 108
+      },
+      {
+        "path": "mysql/07_status_distribution.png",
+        "sha256": "b781af06dc68c5d11d81d804d180c3e282342ba35061fdad14de84bea91b4642",
+        "bytes": 30024
+      },
+      {
+        "path": "mysql/07_status_distribution.sql",
+        "sha256": "971928976ceb1b1b909a8ca11fcca5627c724d42e5887138d6bf3ebf525fe958",
+        "bytes": 783
+      },
+      {
+        "path": "mysql/08_resolution_statistics.csv",
+        "sha256": "7c01e4de6dc8ced07828a8823e0fc57fcae1f8d234db50ced16fe8b5a2ef017a",
+        "bytes": 183
+      },
+      {
+        "path": "mysql/08_resolution_statistics.png",
+        "sha256": "4fcf37697e255750ea0dba0fd75a9a986054cb4ba86f56505c7a9d8842511899",
+        "bytes": 23565
+      },
+      {
+        "path": "mysql/08_resolution_statistics.sql",
+        "sha256": "94b84ab0e70156e68af4c212b427b086390a73df86ff8c3a6dac99efe43b1e92",
+        "bytes": 997
+      },
+      {
+        "path": "mysql/09_category_median.csv",
+        "sha256": "a4e0ac67681c9ccbdc1641189766ad163b432ef67726e253218e4e7551ce72eb",
+        "bytes": 7351
+      },
+      {
+        "path": "mysql/09_category_median.png",
+        "sha256": "a19673f98dd121b93a93910cb4e46b8ff1400ffa12a337ec26bddb2120fa08f6",
+        "bytes": 72627
+      },
+      {
+        "path": "mysql/09_category_median.sql",
+        "sha256": "19dca9ddf849f0709fbee557a65733771fc26d8702b0d4f8a561a39d935a7082",
+        "bytes": 1085
+      },
+      {
+        "path": "mysql/10_agency_median.csv",
+        "sha256": "7674f94a2e4fb58e87d014a45105dffb224e7f133c8d5b86da93bd9cc3f6dc76",
+        "bytes": 627
+      },
+      {
+        "path": "mysql/10_agency_median.png",
+        "sha256": "b4af8277d34706dafa3b923ceb0c9be4bd957db56a8f1c88b6a934887978bab1",
+        "bytes": 32864
+      },
+      {
+        "path": "mysql/10_agency_median.sql",
+        "sha256": "e56da95cf85df7ac3d02222b9a371c38af6ed7da1ae8df5fb8ac56e040cbdacb",
+        "bytes": 1045
+      },
+      {
+        "path": "mysql/11_iqr_outliers.csv",
+        "sha256": "a640d87e6959ace940d996240948fbd6f66506357416b02641e0ed5fda172316",
+        "bytes": 140
+      },
+      {
+        "path": "mysql/11_iqr_outliers.png",
+        "sha256": "807ee899c06b5f87a01d200213826a2c8ec3b2dec0e99f0118b8539ae33307e7",
+        "bytes": 26601
+      },
+      {
+        "path": "mysql/11_iqr_outliers.sql",
+        "sha256": "5c2823ff0483a2e40cbc1d52b3347a67145534a641f18915f83b323d34806ecc",
+        "bytes": 921
+      },
+      {
+        "path": "mysql/12_duration_distribution.csv",
+        "sha256": "d3d33a7e45531e4147452c051ecf33aa9022d7fed74851fc8af9371b56edd188",
+        "bytes": 1867676
+      },
+      {
+        "path": "mysql/12_duration_distribution.png",
+        "sha256": "8f546fe019585fd287f6c22369931ed4fb5bf54ca01de9fe7e0649d73bba64b2",
+        "bytes": 34731
+      },
+      {
+        "path": "mysql/12_duration_distribution.sql",
+        "sha256": "4f031a02c1be5bbd0488dface8e9a5a654869f26afbfcd9dc50d0b0ced2b8eba",
+        "bytes": 754
+      },
+      {
+        "path": "mysql/13_geographic_concentration.csv",
+        "sha256": "3f0f39a3b97d413815d5edecc58753bb6b5ae4660c54ac4e84235e8864949c21",
+        "bytes": 16533
+      },
+      {
+        "path": "mysql/13_geographic_concentration.png",
+        "sha256": "fb2068f4982a0025218e44ea8f2ff013da3325041cb4e0c7774577f2c6beb5dc",
+        "bytes": 213612
+      },
+      {
+        "path": "mysql/13_geographic_concentration.sql",
+        "sha256": "3980b16e91d8c2fe1f7d54c5e9c450eebcf8c1ecb0445e3e7cfdf2eab6061419",
+        "bytes": 1012
+      },
+      {
+        "path": "mysql/14_closure_rate.csv",
+        "sha256": "998525874c5834d3596f3d6fb17df6a5e93b04871f463d9afb7e7a27e88dc804",
+        "bytes": 234
+      },
+      {
+        "path": "mysql/14_closure_rate.png",
+        "sha256": "54d75c87ba2a0acd8c35ceda88f4df10430751ff31a855e038eea8b0b5b7932f",
+        "bytes": 30686
+      },
+      {
+        "path": "mysql/14_closure_rate.sql",
+        "sha256": "e6268c2adfe4af1b95bf70eb9c7a2416a31e8fc8409629f2e24a3cadc57098dc",
+        "bytes": 856
+      },
+      {
+        "path": "mysql/15_high_volume_slow_categories.csv",
+        "sha256": "ac116b0ba36f2b876efa65ff605f4a32460c7b56edb6b2e6103f1fd9407f91db",
+        "bytes": 1606
+      },
+      {
+        "path": "mysql/15_high_volume_slow_categories.png",
+        "sha256": "427ab58d6203791010b4587813d3f3cfb8863799117ad507a9fe004aed7ce375",
+        "bytes": 56773
+      },
+      {
+        "path": "mysql/15_high_volume_slow_categories.sql",
+        "sha256": "ed9e72ee3605f4813983f726fa2e71d34e993f8be697e434977156e567405f01",
+        "bytes": 1368
+      },
+      {
+        "path": "mysql/analysis_filters.json",
+        "sha256": "afffb3b97afaa3a564b62aa84bd3cef62bf59c2e1374878cbdc5359d04640942",
+        "bytes": 178
+      },
+      {
+        "path": "mysql/analyst_evidence.csv",
+        "sha256": "8eeb6a2409545e39914cb306902da2cedea54a42e03779f4eaa092474cc950ca",
+        "bytes": 8620
+      },
+      {
+        "path": "mysql/load_validation_20261106_110646_0b34c517.json",
+        "sha256": "1b76910a835bd70653cb09ffcb4b7ad20b316d9d4d7fe0b46022f7d077cdb056",
+        "bytes": 425
+      },
+      {
+        "path": "mysql/schema.sql",
+        "sha256": "9c915ee6dcf9506b3cde2a8c8b19f13650882431eb0343498ee1fffe078093fd",
+        "bytes": 1565
+      }
+    ]
+  },
+  "mysql_dashboard": {
+    "status": "passed",
+    "source": "MySQL published service_requests",
+    "views_checked": 5,
+    "displayed_metrics": [
+      {
+        "label": "Total requests",
+        "value": "100,000"
+      },
+      {
+        "label": "Recorded closure",
+        "value": "69.4%"
+      },
+      {
+        "label": "Open requests",
+        "value": "30,618"
+      },
+      {
+        "label": "Median resolution",
+        "value": "2.64 h"
+      },
+      {
+        "label": "Over 72 hours",
+        "value": "6.4%"
+      }
+    ],
+    "csv_kpis_match": true
+  },
+  "sql_python_comparison": {
+    "status": "passed",
+    "file": "sql_python_comparison.json",
+    "sha256": "5787347f9e540f7fced6cf37de3f0eb83fbfd090fe74c47d18dcaa9ee9480f09"
+  },
+  "credential_exclusion_check": "passed"
+}

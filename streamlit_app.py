@@ -53,7 +53,7 @@ try:
         else:
             canonical = ROOT / 'data/cleaned/nyc_cleaned.csv'
             legacy = ROOT / 'data/cleaned/nyc_311_cleaned.csv'
-            default = os.environ.get('URBANPULSE_DATA', str(canonical if canonical.is_file() or not legacy.is_file() else legacy))
+            default = os.environ.get('URBANPULSE_DATA', 'data/cleaned/nyc_cleaned.csv' if canonical.is_file() or not legacy.is_file() else 'data/cleaned/nyc_311_cleaned.csv')
             path_text = st.sidebar.text_input('Cleaned CSV path', default)
             path = Path(path_text).expanduser()
             if not path.is_absolute():

@@ -1,5 +1,7 @@
 # Fresh execution evidence
 
+The [subsequent MySQL run](20261106_163637/summary.md) passed full load/read-back/publication validation, all 15 SQL/Python comparisons and Streamlit's live MySQL integration. It supplements the earlier preparation/statistics run below.
+
 Each dated folder contains the environment versions, executed notebook copies, a manifest with timestamps and SHA-256 hashes, and automated-check logs. Successful runs also update the corresponding notebooks in `notebooks/` with their actual execution counts and outputs. Failed executed copies are retained in the dated folder without replacing the main notebook.
 
 Read the [latest processing summary](20261106_153641/summary.md). Its raw input was explicitly imported from an existing snapshot after the live API attempt stalled. To repeat this mode, use `python scripts/06_execute_evidence.py --local-source data/raw/nyc_311_100k.csv`; the import record is labelled as an import, and notebook 01 is marked unexecuted for that run.

@@ -1,0 +1,14 @@
+{
+  "run_id": "20261106_110646_0b34c517",
+  "stage": "service_requests_stage_20261106_110646_0b34c517",
+  "cleaned_rows": 100000,
+  "published": true,
+  "raw_rows": 100000,
+  "rejected_rows": 0,
+  "staged_rows": 100000,
+  "full_roundtrip_passed": true,
+  "invalid_date_rows": 119,
+  "coordinate_issue_rows": 1585,
+  "backup_table": "service_requests_backup_20261106_110646_0b34c517",
+  "published_rows": 100000
+}

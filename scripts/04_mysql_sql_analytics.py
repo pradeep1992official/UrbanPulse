@@ -21,6 +21,9 @@ if not (project / "data").is_dir() and (project.parent / "data").is_dir():
 if not (project / "data").is_dir():
     raise FileNotFoundError("Run from the repository root or set URBANPULSE_ROOT.")
 
+from dotenv import load_dotenv
+load_dotenv(project / '.env', override=False)
+
 data = project / 'data'
 out = data / 'mysql'
 out.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,9 @@
+{
+  "start": null,
+  "end_exclusive": null,
+  "borough": null,
+  "complaint_type": null,
+  "minimum_requests": 100,
+  "minimum_median_hours": 24,
+  "filtered_n": 100000
+}

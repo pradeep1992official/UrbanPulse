@@ -1,0 +1,25 @@
+Stage,Item,Value
+Cleaning,Source (raw) rows loaded,100000
+Cleaning,Duplicate unique_key rows rejected (saved to rejected_records.csv),0
+Cleaning,"Date parse errors (flagged, set to NaT)",0
+Cleaning,"Closure earlier than creation (flagged, not corrected)",119
+Cleaning,Text cells changed by normalisation,407362
+Cleaning,Imputed values or overwritten statuses,0
+Validation,Source (raw) rows,100000
+Validation,Rejected rows,0
+Validation,Cleaned rows,100000
+Validation,Rows reconcile (source - rejected = cleaned),True
+Validation,unique_key is unique,True
+Validation,unique_key missing,0
+Validation,created_date range,2026-10-14 11:19:47  →  2026-10-23 02:46:57
+Validation,closed_date range,2026-10-09 12:05:00  →  2026-10-23 02:22:24
+Validation,created_date in the future,0
+Validation,closed_date in the future,0
+Validation,due_date before created_date,0
+Validation,latitude range,40.4995  →  40.9122
+Validation,longitude range,-74.2518  →  -73.7009
+Validation,Coordinates with issues,1585
+Validation,Valid resolution durations,69263
+Validation,resolution_hours range,0.00  →  199.47
+Validation,Negative durations (closure < creation),119
+Validation,Durations over 365 days (flagged),0

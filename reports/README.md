@@ -1,5 +1,7 @@
 # Submission evidence
 
+The [fresh MySQL execution](execution/20261106_163637/summary.md) now verifies the 100,000-row load, all 15 SQL/Python result comparisons, completed SQL interpretations and the live Streamlit MySQL source. Original API download provenance remains unresolved.
+
 Fresh notebook outputs, canonical-data dashboard checks and regenerated investigations are available in the [dated execution summary](execution/20261106_153641/summary.md). It distinguishes the successful processing stages from the unsuccessful API attempt and pending MySQL stage.
 
 Start with the [final findings report](final_findings_report.md) for the executive findings, five KPIs, demand and resolution comparisons, recommended next actions, limitations and reproduction instructions. It describes the identified earlier local snapshot; final canonical-data and MySQL reconciliation remain outstanding.

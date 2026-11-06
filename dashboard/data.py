@@ -4,8 +4,10 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parents[1]
+load_dotenv(ROOT / '.env', override=False)
 REQUIRED = {'unique_key', 'created_date', 'closed_date', 'agency', 'complaint_type', 'borough', 'status'}
 
 

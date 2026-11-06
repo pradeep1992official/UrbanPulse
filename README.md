@@ -2,7 +2,7 @@
 
 Citizen complaint and recorded closure analysis using NYC 311 data, Python and MySQL.
 
-The four notebooks implement extraction, preparation, descriptive statistics and 15 SQL investigations. The Streamlit application adds interactive analyst views and the five-KPI dashboard. Read the [final findings report](reports/final_findings_report.md) for the results and recommendations, supported by [evidence for all 15 investigations](reports/analyst_findings.md) from the earlier local extract. **Submission still requires fresh execution and reconciliation with the final canonical extract and MySQL results.** See [the requirement review](docs/requirements_review.md) for an evidence-based checklist.
+The four notebooks implement extraction, preparation, descriptive statistics and 15 SQL investigations. The Streamlit application adds interactive analyst views and the five-KPI dashboard. Read the [final findings report](reports/final_findings_report.md) for the results and recommendations, supported by [evidence for all 15 investigations](reports/analyst_findings.md) from the earlier local extract. **Current MySQL execution and all 15 SQL/Python comparisons have passed; original API extraction provenance remains incomplete.** See [the requirement review](docs/requirements_review.md) for an evidence-based checklist.
 
 ## Repository layout
 
@@ -14,10 +14,12 @@ scripts/             Matching executable Python versions
 sql/                 Exported queries and SQL usage notes
 docs/                Requirements review and methodology
 reports/             Submission findings and validation guidance
-data/                Local raw/cleaned datasets and generated analysis (ignored)
+data/                Included raw/cleaned CSV snapshots, dictionary and provenance
 ```
 
 ## Setup and execution
+
+The CSV snapshot is included at `data/raw/nyc_100k_raw.csv` and `data/cleaned/nyc_cleaned.csv`. After downloading and extracting the repository, processing can start at notebook 02 without an API call. See [data paths and usage](data/README.md). Notebook 01 optionally refreshes the source using the live API.
 
 Use Python 3.11 or newer. Run commands from the repository root.
 
@@ -38,7 +40,7 @@ The extraction writes `data/raw/nyc_100k_raw.csv` and `data/extraction_metadata.
 
 ## MySQL
 
-Use a hosted MySQL 8+ instance with verified TLS. Set the environment variables listed in [.env.example](.env.example); the file itself is not loaded automatically. Keep the CA certificate in `certs/` and set `MYSQL_SSL_CA` to its path.
+Use a hosted MySQL 8+ instance with verified TLS. Set the environment variables listed in [.env.example](.env.example), or copy the placeholders into an ignored `.env` file and enter your settings there. Notebook 04, the execution runner and dashboard load the repository's `.env` without overriding existing environment variables. Keep the CA certificate in `certs/` and set `MYSQL_SSL_CA` to its relative path. The template `.env.example` is never loaded as credentials.
 
 ```powershell
 $env:MYSQL_HOST = "your-host"
@@ -80,8 +82,10 @@ Run `python tests/test_pipeline.py` for isolated preparation/statistics and sche
 
 Run `python scripts/06_execute_evidence.py` for fresh execution of notebooks 01–03 with saved outputs and dated evidence. Once MySQL is configured, `python scripts/06_execute_evidence.py --mysql --only-mysql` records notebook 04 separately. See [execution evidence](reports/execution/README.md) for run artifacts and scope.
 
-The [latest recorded processing run](reports/execution/20261106_153641/summary.md) passed preparation, statistics, dashboard checks and the Python investigations using the preserved raw snapshot. The live API attempt stalled; MySQL execution remains pending. To reproduce the local-import run, use `python scripts/06_execute_evidence.py --local-source data/raw/nyc_311_100k.csv`.
+The [latest recorded processing run](reports/execution/20261106_153641/summary.md) passed preparation, statistics, dashboard checks and the Python investigations using the preserved raw snapshot. The live API attempt stalled; the [subsequent MySQL execution](reports/execution/20261106_163637/summary.md) passed the 100,000-row load and all 15 SQL/Python comparisons. To rerun processing on the bundled canonical snapshot, use `python scripts/06_execute_evidence.py --skip-extraction`.
 
-Follow [the submission checklist](docs/requirements_review.md). Large datasets, credentials and certificates are excluded from new commits. Legacy datasets have been removed from Git tracking and are preserved locally. Existing Git history still contains previously committed datasets.
+Follow [the submission checklist](docs/requirements_review.md). The canonical raw/cleaned CSVs, dictionary, import metadata and validation log are included for offline processing. Older duplicate datasets, regenerated statistics, credentials and certificates remain excluded from new commits.
 
 Data source: NYC Open Data, dataset `erm2-nwe9`. The original Word guidelines are the requirement source; external links and administrative instructions inside them were not executed as user requests.
+
+Verify newly exported SQL results with `python scripts/07_verify_sql_results.py --output reports/sql_python_comparison.json`. The successful recorded MySQL run is documented in [the dated summary](reports/execution/20261106_163637/summary.md).

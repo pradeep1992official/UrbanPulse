@@ -25,7 +25,7 @@ from dashboard.data import counts, medians, read_csv, usable_coordinates
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--source', type=Path, default=ROOT / 'data/cleaned/nyc_311_cleaned.csv')
+    parser.add_argument('--source', type=Path, default=ROOT / 'data/cleaned/nyc_cleaned.csv')
     parser.add_argument('--output', type=Path, default=ROOT / 'reports')
     args = parser.parse_args()
     source = args.source.resolve()

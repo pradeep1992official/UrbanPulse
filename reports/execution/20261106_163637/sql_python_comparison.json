@@ -1,0 +1,119 @@
+{
+  "checked_at": "2026-11-06T16:41:06.167526+05:30",
+  "status": "passed",
+  "source": "data/cleaned/nyc_cleaned.csv",
+  "source_sha256": "80502bf0307c77c3f2ece33ea97ec6a126d34b7b82d6ed1a129c06293dd8a7be",
+  "filtered_rows": 100000,
+  "valid_durations": 69263,
+  "rtol": 1e-09,
+  "atol": 1e-07,
+  "percentage_atol": 5.1e-06,
+  "percentage_note": "SQL decimal division exports percentages to five decimal places",
+  "investigations": [
+    {
+      "task": "01_distinct_volume",
+      "status": "passed",
+      "result_rows": 1,
+      "max_absolute_numeric_difference": 0.0,
+      "sql_result_sha256": "4d036f10cc13a5bbca6a2f6bdc8fc82488c636dbad93ec85f44d81d9f64e16dd"
+    },
+    {
+      "task": "02_top_complaints",
+      "status": "passed",
+      "result_rows": 10,
+      "max_absolute_numeric_difference": 0.0,
+      "sql_result_sha256": "5f9c95397ad94b841284ee7674ce53fbbf32b16e762c791c0a05f0a4d6fd8096"
+    },
+    {
+      "task": "03_agency_workload",
+      "status": "passed",
+      "result_rows": 14,
+      "max_absolute_numeric_difference": 8.881784197001252e-16,
+      "sql_result_sha256": "9fd5f392ea08e023c0322472ba080e8bed0928c671e4dff3fec7714630a9524b"
+    },
+    {
+      "task": "04_borough_volume",
+      "status": "passed",
+      "result_rows": 6,
+      "max_absolute_numeric_difference": 0.0,
+      "sql_result_sha256": "2e3e1bc9a8306c49bdfa703091a1e68def0c2e765fd7ac3a82614c3492243806"
+    },
+    {
+      "task": "05_monthly_trend",
+      "status": "passed",
+      "result_rows": 1,
+      "max_absolute_numeric_difference": 0.0,
+      "sql_result_sha256": "fa32502ef127c40e889c9b693d211b05a66311d5f852ff39aad52731cd3f8b3c"
+    },
+    {
+      "task": "06_weekday_hour",
+      "status": "passed",
+      "result_rows": 168,
+      "max_absolute_numeric_difference": 0.0,
+      "sql_result_sha256": "41759abb7daafd2a167c5ddc70b0913f617fce4829f4f7d5885aaf4fe51e15f9"
+    },
+    {
+      "task": "07_status_distribution",
+      "status": "passed",
+      "result_rows": 6,
+      "max_absolute_numeric_difference": 0.0,
+      "sql_result_sha256": "5e8805290d504dbdbae50de9d04541691b872d033ff810498dd6a4c30a83770a"
+    },
+    {
+      "task": "08_resolution_statistics",
+      "status": "passed",
+      "result_rows": 1,
+      "max_absolute_numeric_difference": 1.3642420526593924e-12,
+      "sql_result_sha256": "7c01e4de6dc8ced07828a8823e0fc57fcae1f8d234db50ced16fe8b5a2ef017a"
+    },
+    {
+      "task": "09_category_median",
+      "status": "passed",
+      "result_rows": 128,
+      "max_absolute_numeric_difference": 1.3500311979441904e-13,
+      "sql_result_sha256": "a4e0ac67681c9ccbdc1641189766ad163b432ef67726e253218e4e7551ce72eb"
+    },
+    {
+      "task": "10_agency_median",
+      "status": "passed",
+      "result_rows": 13,
+      "max_absolute_numeric_difference": 1.0658141036401503e-13,
+      "sql_result_sha256": "7674f94a2e4fb58e87d014a45105dffb224e7f133c8d5b86da93bd9cc3f6dc76"
+    },
+    {
+      "task": "11_iqr_outliers",
+      "status": "passed",
+      "result_rows": 1,
+      "max_absolute_numeric_difference": 0.0,
+      "sql_result_sha256": "a640d87e6959ace940d996240948fbd6f66506357416b02641e0ed5fda172316"
+    },
+    {
+      "task": "12_duration_distribution",
+      "status": "passed",
+      "result_rows": 69263,
+      "max_absolute_numeric_difference": 0.0,
+      "sql_result_sha256": "d3d33a7e45531e4147452c051ecf33aa9022d7fed74851fc8af9371b56edd188"
+    },
+    {
+      "task": "13_geographic_concentration",
+      "status": "passed",
+      "result_rows": 866,
+      "max_absolute_numeric_difference": 0.0,
+      "sql_result_sha256": "3f0f39a3b97d413815d5edecc58753bb6b5ae4660c54ac4e84235e8864949c21"
+    },
+    {
+      "task": "14_closure_rate",
+      "status": "passed",
+      "result_rows": 6,
+      "max_absolute_numeric_difference": 3.979690760047561e-06,
+      "sql_result_sha256": "998525874c5834d3596f3d6fb17df6a5e93b04871f463d9afb7e7a27e88dc804"
+    },
+    {
+      "task": "15_high_volume_slow_categories",
+      "status": "passed",
+      "result_rows": 36,
+      "max_absolute_numeric_difference": 0.0,
+      "sql_result_sha256": "ac116b0ba36f2b876efa65ff605f4a32460c7b56edb6b2e6103f1fd9407f91db"
+    }
+  ]
+}

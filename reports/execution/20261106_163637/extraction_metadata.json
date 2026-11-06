@@ -1,0 +1,33 @@
+{
+  "source_kind": "local_raw_snapshot_import",
+  "source_file": "data/raw/nyc_311_100k.csv",
+  "source_sha256": "5d7fb6053dff659a4b98a6a2ebdb023d24105624982a4726ee0106a1b1e45181",
+  "imported_at": "2026-11-06T15:36:45.432585+05:30",
+  "actual_records": 100000,
+  "selected_fields": [
+    "unique_key",
+    "created_date",
+    "closed_date",
+    "due_date",
+    "agency",
+    "complaint_type",
+    "borough",
+    "status",
+    "latitude",
+    "longitude",
+    "agency_name",
+    "descriptor",
+    "location_type",
+    "incident_zip",
+    "city",
+    "resolution_description"
+  ],
+  "status": "local_import_completed",
+  "original_extraction_time": null,
+  "original_api_parameters": null,
+  "data_coverage_start": "2026-10-14T11:19:47.000",
+  "data_coverage_end": "2026-10-23T02:46:57.000",
+  "limitations": [
+    "Existing raw snapshot; import is not a successful fresh API extraction."
+  ]
+}

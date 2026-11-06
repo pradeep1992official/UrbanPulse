@@ -8,5 +8,15 @@ certs/
 *.pem
 data/**
 !data/README.md
+!data/raw/
+data/raw/*
+!data/raw/nyc_100k_raw.csv
+!data/cleaned/
+data/cleaned/*
+!data/cleaned/nyc_cleaned.csv
+!data/extraction_metadata.json
+!data/data_dictionary.csv
+!data/cleaning_validation_log.csv
+!data/rejected_records.csv
 review_work/
 reports/local_validation/
