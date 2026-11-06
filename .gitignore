@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.env
+.env.*
+!.env.example
+certs/
+*.pem
+data/**
+!data/README.md
+review_work/
+reports/local_validation/
